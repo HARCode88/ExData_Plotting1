@@ -18,11 +18,11 @@ sub_hdata<- subset(household_data, Date == "1/2/2007" | Date == "2/2/2007")
 sub_hdata$Time<- strptime(paste(sub_hdata$Date,sub_hdata$Time), format= "%d/%m/%Y %T")
 
 #open the graphics device
-png(file="plot1.png")
-#create a histogram of the Global Active Power to the specs shown
-with(sub_hdata, hist(Global_active_power, main="Global Active Power",
-                     xlab="Global Active Power (kilowatts)",
-                     col="orange"))
+png(file="plot2.png")
+#create a plot of the Global Active Power over time
+with(sub_hdata, plot(Time, Global_active_power, type = "l",
+                     ylab="Global Active Power (kilowatts)",
+                     xlab=""))
 
 #close the graphics device
 dev.off()
